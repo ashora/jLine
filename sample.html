@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>test</title>
+
+        <link rel="stylesheet" href="content/reset.css" />
+        <link rel="stylesheet" href="content/j-line.css" />
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="Mwc" />
+
+        <style type="text/css">
+            .samples li { margin-left: 30px; margin-top: 30px; margin-bottom: 150px; }
+            h2 { margin-bottom: 30px; }
+            h2 span { font-size: 12px; font-weight: normal; color: #aaa; margin-left: 10px; }
+        </style>
+    </head>
+    <body>
+
+        <ul class="samples">
+            <li>
+                <h2>里程碑 <span>（版本历程）</span></h2>
+                <div class="date"></div>
+            </li>
+            <li>
+                <h2>安装程序 <span>（进度，选择安装目的地）</span></h2>
+                <div class="setup"></div>
+            </li>
+            <li>
+                <h2>深圳4号线 <span>（龙华线， 少年宫站）</span></h2>
+                <div class="station"></div>
+            </li>
+        </ul>
+
+        <script type="text/javascript" src="scripts/jquery-1.7.2.js"></script>
+        <script type="text/javascript" src="scripts/j-line.js"></script>
+
+        <script type="text/javascript">
+
+            $( function ()
+            {
+                var data_1 = ["v1.0", "v1.2", "v2.0", "v2.5"];
+                var d = $( ".date" ).jLine( { contentPos: "top", connectLineWidth: "60px" }, data_1 );
+                d.changeColor( 3, "orange" );
+
+                var data_2 = ["开始", "卸载旧版本", "选择位置", "安装文件", "完成"];
+                var setup = $( ".setup" ).jLine( { connectLineWidth: "70px" }, data_2 );
+                setup.changeColor( 2, "blue", "forward" );
+
+                var data_3 = ["福田口岸", "福民", "会展中心", "市民中心", "少年宫", "莲花北", "上梅林", "民乐", "白石龙", "深圳北", "红山", "上塘", "龙胜", "龙华", "清湖"];
+                var station = $( ".station" ).jLine( { contentPos: "alternately", connectLineWidth: "50px" }, data_3 );
+                station.changeColor( 4, "red", "forward" );
+            } );
+        </script>
+
+    </body>
+</html>
