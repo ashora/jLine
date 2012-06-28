@@ -1,0 +1,21 @@
+﻿/* j-line by mwc @2012/6 */
+
+.j-line, .j-line li, .j-line-children { margin: 0; padding: 0; }
+.j-line { position: relative; display: block; z-index: 10000; }
+.j-line li, .j-line-children, .j-conn { position: absolute; display: block; }
+
+.j-station { background-image: url('images/se.png'); background-color: transparent !important; width: 13px; height: 13px; background-repeat: no-repeat; background-position: -15px top; top: 1px; cursor: pointer; }
+.j-ends { width: 15px; height: 15px; background-position: left top; top: 0; }
+.j-conn { width: 50px; height: 3px; background-color: #828282; top: 6px; }
+
+.j-white { background-position-y: -120px; background-color: #f5f5f5; color: #f5f5f5; }
+.j-gray { background-position-y: 0; background-color: #828282; color: #828282; }
+.j-green { background-position-y: -15px; background-color: #02b213; color: #02b213; }
+.j-red { background-position-y: -30px; background-color: #ec2308; color: #ec2308; }
+.j-blue { background-position-y: -45px; background-color: #086eec; color: #086eec; }
+.j-purple { background-position-y: -60px; background-color: #ec08c9; color: #ec08c9; }
+.j-cyan { background-position-y: -75px; background-color: #04aaa4; color: #04aaa4; }
+.j-yellow { background-position-y: -90px; background-color: #fbd502; color: #fbd502; }
+.j-orange { background-position-y: -105px; background-color: #fb7102; color: #fb7102; }
+
+.j-station a, .j-station span, .j-station div, .j-text-title { position: absolute; display: block; text-align: center; overflow: hidden; }
