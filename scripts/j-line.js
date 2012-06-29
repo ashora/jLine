@@ -45,7 +45,7 @@
 {
     $.fn.jLine = function ( option, data )
     {
-        var setting = {};
+        var setting = {},
             SUPPORT_ELEMENT = { "div": "div", "dl": "dd", "ul": "li", "ol": "li" },
             SUPPORT_COLOR = "j-white j-gray j-green j-red j-blue j-purple j-cyan j-yellow j-orange",
             INFO = "仅支持 div, dl, ul, ol 元素",
