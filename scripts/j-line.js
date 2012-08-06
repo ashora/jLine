@@ -41,6 +41,8 @@
 // * 提供数据形式的 jQuery 对象仅能是 div、dl、ul(建议)、ol；
 // * 提供数据形式或者直接给出 HTML 形式两者仅能二选其一，不能同时兼顾使用。
 
+
+
 ; ( function ( $ )
 {
     $.fn.jLine = function ( option, data )
