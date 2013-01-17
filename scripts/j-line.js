@@ -54,7 +54,7 @@
             ELEMENT_FORMAT_GENERAL = '<{0}></{0}>',   // 常规元素格式
             ELEMENT_FORMAT_LINK = '<{0}><a href="{2}" target="{3}">{1}</a></{0}>',  // 超链接格式
             ELEMENT_FORMAT_SPAN = '<{0}><span>{1}</span></{0}>';    // 普通文本格式
-            ELEMENT_FORMAT_CONN = '<{0} class="j-conn{1}"{2}></{0}>';  // 连接线格式
+        ELEMENT_FORMAT_CONN = '<{0} class="j-conn{1}"{2}></{0}>';  // 连接线格式
 
         if ( $.isArray( option ) )
         {
@@ -83,8 +83,8 @@
             //      dotObject: [点] 对象
             dotClick: $.noop
         }, option || {} );
-                
-        var pFunc = { 
+
+        var pFunc = {
             "byIndex": fillColorByIndex,
             "forward": fillColorForward,
             "afterward": fillColorAfterward
@@ -97,40 +97,40 @@
         };
 
         // 返回指定索引的 [点]
-        this.getStation = function ( stationIndex ) 
+        this.getStation = function ( stationIndex )
         {
             return this.children( ".j-station" ).eq( stationIndex );
         }
 
         // 从 index 开始往前修改所有的点和连接线的颜色
-        function fillColorForward ( index, color )
+        function fillColorForward( index, color )
         {
             var me = this.getStation( index );
             fillColor( this.children( ":lt(" + ( index * 2 + 1 ) + ")" ), color );
         }
 
         // 修改 index 点的颜色
-        function fillColorByIndex ( index, color )
+        function fillColorByIndex( index, color )
         {
             fillColor( this.children( ".j-station:eq(" + index + ")" ), color );
         }
 
-        function fillColor ( obj, color )
+        function fillColor( obj, color )
         {
             obj.addClass( "j-" + color );
         }
 
         // 从 index 开始往后修改所有的点和连接线的颜色
-        function fillColorAfterward ( index, color )
+        function fillColorAfterward( index, color )
         {
             fillColor( this.children( ":gt(" + ( index * 2 - 1 ) + ")" ), color );
         }
-        
+
         // 定位标题文本位置
-        function innerShowContent ( i, f )
+        function innerShowContent( i, f )
         {
-            var f = pContentFunc[ setting.contentPos.toLowerCase() ];
-            
+            var f = pContentFunc[setting.contentPos.toLowerCase()];
+
             this.children().addClass( "j-text-title" ).css( {
                 top: f.func( i ),
                 width: ( this.width() + parseInt( setting.connectLineWidth ) ),
@@ -146,12 +146,40 @@
         this.changeColor = function ( stationIndex, color, fillStrategy )
         {
             fillStrategy = fillStrategy || "byIndex";
+            stationIndex = stationIndex < 0 ? 0 : stationIndex;
 
             if ( fillStrategy in pFunc )
             {
                 this.children().removeClass( SUPPORT_COLOR );
-                pFunc[ fillStrategy ].apply( this, [ stationIndex, color ] );
+                pFunc[fillStrategy].apply( this, [stationIndex, color] );
             }
+
+            return this;
+        }
+
+        // 闪烁指定的点
+        // duration: 闪烁时间长度（单位：毫秒），为空或者设置为 0 则一直闪烁。
+        this.flash = function ( stationIndex, duration )
+        {
+            duration = ( duration || 0 );
+            stationIndex = ( stationIndex < 0 ? 0 : stationIndex );
+
+            var s = this.children( ".j-station:eq(" + stationIndex + ")" );
+
+            s.addClass( "j-flash" );
+
+            if ( duration !== 0 )
+            {
+                setTimeout( function () { s.removeClass( "j-flash" ); }, duration );
+            }
+
+            return this;
+        }
+
+        // 使指定的点停止闪烁
+        this.stopFlash = function ( stationIndex )
+        {
+            this.children( ".j-station:eq(" + ( stationIndex < 0 ? 0 : stationIndex ) + ")" ).removeClass( "j-flash" );
         }
 
         // 创建 [点] 信息
@@ -198,7 +226,7 @@
                             format = ELEMENT_FORMAT_GENERAL;
                         }
 
-                        this.append( 
+                        this.append(
                             format.replace( /\{0\}/g, childrenName )
                                   .replace( /\{1\}/g, content )
                                   .replace( /\{2\}/g, url )
@@ -221,7 +249,7 @@
         {
             if ( tag )
             {
-                stations.filter( ":not(:last)" ).after( 
+                stations.filter( ":not(:last)" ).after(
                     ELEMENT_FORMAT_CONN.replace( /\{0\}/g, tag )
                                        .replace( /\{1\}/g, ( setting.connectLineColor ? ( " j-" + setting.connectLineColor ) : "j-gray" ) )
                                        .replace( /\{2\}/g, ( setting.connectLineWidth ? ( ' style="width: ' + setting.connectLineWidth + ';"' ) : '' ) )
@@ -246,7 +274,7 @@
                     curPosition += e.width();
 
                     if ( setting.showContent && e.hasClass( "j-station" ) )
-                        innerShowContent.apply( e, [ i / 2 ] );
+                        innerShowContent.apply( e, [i / 2] );
                 }
             }
         }
@@ -261,7 +289,8 @@
 
             line.addClass( "j-line" );
 
-            stations.addClass( "j-line-children j-station" + ( setting.color ? ( " j-" + setting.color ) : "j-gray" ) ).click( function ( event ) {
+            stations.addClass( "j-line-children j-station" + ( setting.color ? ( " j-" + setting.color ) : "j-gray" ) ).click( function ( event )
+            {
                 var me = $( this );
                 setting.dotClick( event, me.index( ".j-station" ), me );    // 引发单击事件
             } );

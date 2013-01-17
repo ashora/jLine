@@ -85,7 +85,7 @@
 
                 var data_3 = ["福田口岸", "福民", "会展中心", "市民中心", "少年宫", "莲花北", "上梅林", "民乐", "白石龙", "深圳北", "红山", "上塘", "龙胜", "龙华", "清湖"];
                 var station = $( ".station" ).jLine( { contentPos: "alternately", connectLineWidth: "50px" }, data_3 );
-                station.changeColor( 4, "red", "forward" );
+                station.changeColor( 4, "red", "forward" ).flash( 4 ).flash( 3, 4000 );
             } );
         </script>
 

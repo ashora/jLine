@@ -2,8 +2,9 @@
 
 .j-line, .j-line li, .j-line-children { margin: 0; padding: 0; }
 .j-line { position: relative; display: block; z-index: 10000; }
-.j-line li, .j-line-children, .j-conn { position: absolute; display: block; }
+    .j-line li, .j-line-children, .j-conn { position: absolute; display: block; }
 
+.j-flash { background-image: url('images/se.gif')!important; }
 .j-station { background-image: url('images/se.png'); background-color: transparent !important; width: 13px; height: 13px; background-repeat: no-repeat; background-position: -15px top; top: 1px; cursor: pointer; }
 .j-ends { width: 15px; height: 15px; background-position: left top; top: 0; }
 .j-conn { width: 50px; height: 3px; background-color: #828282; top: 6px; }
