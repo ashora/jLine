@@ -1,45 +1,47 @@
-ï»¿// j-line
-// ç«™ç‚¹æ’ä»¶
+// j-line
+// Õ¾µã²å¼ş
 //
 // by mwc @2012/6
 //
-// åŸºæœ¬ä½¿ç”¨æ–¹æ³•ï¼š
+// »ù±¾Ê¹ÓÃ·½·¨£º
 //
 // $("selector").jLine( options, [data] );
 //
 // options => {
-//      showContent: true,  // æ˜¾ç¤ºé™„åŠ æ–‡æœ¬ (boolean)
-//      contentPos: "bottom",   // æ–‡æœ¬ä½ç½® (string)
-//      color: "gray",   // [ç‚¹]çš„é¢œè‰² (string)
-//      connectLine: "gray", // è¿æ¥çº¿çš„é¢œè‰² (string)
-//      dotClick: $.noop    // ç‚¹å‡»æŒ‡å®šçš„ [ç‚¹] äº§ç”Ÿçš„å›è°ƒäº‹ä»¶
+//      showContent: true,  // ÏÔÊ¾¸½¼ÓÎÄ±¾ (boolean)
+//      contentPos: "bottom",   // ÎÄ±¾Î»ÖÃ (string)
+//      color: "gray",   // [µã]µÄÑÕÉ« (string)
+//      connectLine: "gray", // Á¬½ÓÏßµÄÑÕÉ« (string)
+//      dotClick: $.noop    // µã»÷Ö¸¶¨µÄ [µã] ²úÉúµÄ»Øµ÷ÊÂ¼ş
 // }
 //
-// [é¢œè‰²æ”¯æŒ]
+// [ÑÕÉ«Ö§³Ö]
 // ---------------------------
-// white    ç™½
-// gray     ç°
-// green    ç»¿
-// red      çº¢
-// blue     è“
-// purple   ç´«
-// cyan     é’
-// yellow   é»„
-// orange   æ©™
+// white    °×
+// gray     »Ò
+// green    ÂÌ
+// red      ºì
+// blue     À¶
+// purple   ×Ï
+// cyan     Çà
+// yellow   »Æ
+// orange   ³È
 //
-// data => [ "[ç‚¹]æ ‡é¢˜æ–‡æœ¬1=>è¶…é“¾æ¥åœ°å€", "[ç‚¹]æ ‡é¢˜æ–‡æœ¬2", ... ]
+// data => [ "[µã]±êÌâÎÄ±¾1=>³¬Á´½ÓµØÖ·", "[µã]±êÌâÎÄ±¾2", ... ]
 //
-// [å®¢æˆ·ç«¯ç¤ºä¾‹]
-// ç¤ºä¾‹1ï¼š å°† .lines ä¸­çš„å…ƒç´ æ˜¾ç¤ºä¸ºçº¢è‰²çš„ç‚¹
+// [¿Í»§¶ËÊ¾Àı]
+// Ê¾Àı1£º ½« .lines ÖĞµÄÔªËØÏÔÊ¾ÎªºìÉ«µÄµã
 // $(".lines").jLine( { color: "red" } );
 //
-// ç¤ºä¾‹2ï¼š ä»¥é»˜è®¤ç°è‰²çš„ç‚¹æ˜¾ç¤ºæŒ‡å®šæ•°æ®ä¸º[ç‚¹]åˆ° div#lines ä¸­ï¼Œç¬¬äºŒä¸ªæ ‡é¢˜æ–‡æœ¬ bbb æ˜¯è¶…é“¾æ¥
+// Ê¾Àı2£º ÒÔÄ¬ÈÏ»ÒÉ«µÄµãÏÔÊ¾Ö¸¶¨Êı¾İÎª[µã]µ½ div#lines ÖĞ£¬µÚ¶ş¸ö±êÌâÎÄ±¾ bbb ÊÇ³¬Á´½Ó
 // <div id="point"></div>
 // $("#point").jLine( [ "aaa", "bbb=>http://www.baidu.com", "ccc" ] );
 //
-// [æ³¨æ„]
-// * æä¾›æ•°æ®å½¢å¼çš„ jQuery å¯¹è±¡ä»…èƒ½æ˜¯ divã€dlã€ul(å»ºè®®)ã€olï¼›
-// * æä¾›æ•°æ®å½¢å¼æˆ–è€…ç›´æ¥ç»™å‡º HTML å½¢å¼ä¸¤è€…ä»…èƒ½äºŒé€‰å…¶ä¸€ï¼Œä¸èƒ½åŒæ—¶å…¼é¡¾ä½¿ç”¨ã€‚
+// [×¢Òâ]
+// * Ìá¹©Êı¾İĞÎÊ½µÄ jQuery ¶ÔÏó½öÄÜÊÇ div¡¢dl¡¢ul(½¨Òé)¡¢ol£»
+// * Ìá¹©Êı¾İĞÎÊ½»òÕßÖ±½Ó¸ø³ö HTML ĞÎÊ½Á½Õß½öÄÜ¶şÑ¡ÆäÒ»£¬²»ÄÜÍ¬Ê±¼æ¹ËÊ¹ÓÃ¡£
+
+
 
 ; ( function ( $ )
 {
@@ -48,11 +50,11 @@
         var setting = {},
             SUPPORT_ELEMENT = { "div": "div", "dl": "dd", "ul": "li", "ol": "li" },
             SUPPORT_COLOR = "j-white j-gray j-green j-red j-blue j-purple j-cyan j-yellow j-orange",
-            INFO = "ä»…æ”¯æŒ div, dl, ul, ol å…ƒç´ ",
-            ELEMENT_FORMAT_GENERAL = '<{0}></{0}>',   // å¸¸è§„å…ƒç´ æ ¼å¼
-            ELEMENT_FORMAT_LINK = '<{0}><a href="{2}" target="{3}">{1}</a></{0}>',  // è¶…é“¾æ¥æ ¼å¼
-            ELEMENT_FORMAT_SPAN = '<{0}><span>{1}</span></{0}>';    // æ™®é€šæ–‡æœ¬æ ¼å¼
-            ELEMENT_FORMAT_CONN = '<{0} class="j-conn{1}"{2}></{0}>';  // è¿æ¥çº¿æ ¼å¼
+            INFO = "½öÖ§³Ö div, dl, ul, ol ÔªËØ",
+            ELEMENT_FORMAT_GENERAL = '<{0}></{0}>',   // ³£¹æÔªËØ¸ñÊ½
+            ELEMENT_FORMAT_LINK = '<{0}><a href="{2}" target="{3}">{1}</a></{0}>',  // ³¬Á´½Ó¸ñÊ½
+            ELEMENT_FORMAT_SPAN = '<{0}><span>{1}</span></{0}>';    // ÆÕÍ¨ÎÄ±¾¸ñÊ½
+        ELEMENT_FORMAT_CONN = '<{0} class="j-conn{1}"{2}></{0}>';  // Á¬½ÓÏß¸ñÊ½
 
         if ( $.isArray( option ) )
         {
@@ -61,28 +63,28 @@
         }
 
         $.extend( setting, {
-            showContent: true,  // æ˜¾ç¤ºé™„åŠ æ–‡æœ¬ (boolean)
-            // æ–‡æœ¬ä½ç½® (string):
-            //     top: æ–‡å­—åœ¨[ç‚¹]ä¸Šæ–¹
-            //     bottom: æ–‡å­—åœ¨[ç‚¹]ä¸‹æ–¹
-            //     alternately: ä¸Šä¸‹äº¤æ›¿
-            //     é»˜è®¤: bottom
+            showContent: true,  // ÏÔÊ¾¸½¼ÓÎÄ±¾ (boolean)
+            // ÎÄ±¾Î»ÖÃ (string):
+            //     top: ÎÄ×ÖÔÚ[µã]ÉÏ·½
+            //     bottom: ÎÄ×ÖÔÚ[µã]ÏÂ·½
+            //     alternately: ÉÏÏÂ½»Ìæ
+            //     Ä¬ÈÏ: bottom
             contentPos: "bottom",
 
-            color: "gray",   // [ç‚¹]çš„é¢œè‰² (string)
-            connectLineColor: "gray", // è¿æ¥çº¿çš„é¢œè‰² (string)
-            connectLineWidth: "30px",   // è¿æ¥çº¿é•¿åº¦ (string/number)
+            color: "gray",   // [µã]µÄÑÕÉ« (string)
+            connectLineColor: "gray", // Á¬½ÓÏßµÄÑÕÉ« (string)
+            connectLineWidth: "30px",   // Á¬½ÓÏß³¤¶È (string/number)
 
-            stressEnds: true,    // ä¸¤ç«¯çš„ [ç‚¹] æ›´çªå‡ºï¼ˆç‚¹ç¨å¾®å¤§ä¸€ç‚¹ç‚¹ï¼‰
+            stressEnds: true,    // Á½¶ËµÄ [µã] ¸üÍ»³ö£¨µãÉÔÎ¢´óÒ»µãµã£©
 
-            // ç‚¹å‡»æŒ‡å®šçš„ [ç‚¹] äº§ç”Ÿçš„å›è°ƒäº‹ä»¶ï¼Œå‘é€å‚æ•°ï¼š function( event, dotIndex, dotObject )
-            //      event: äº‹ä»¶å¯¹è±¡
-            //      dotIndex: ç‚¹å‡»çš„ç‚¹çš„ç´¢å¼•
-            //      dotObject: [ç‚¹] å¯¹è±¡
+            // µã»÷Ö¸¶¨µÄ [µã] ²úÉúµÄ»Øµ÷ÊÂ¼ş£¬·¢ËÍ²ÎÊı£º function( event, dotIndex, dotObject )
+            //      event: ÊÂ¼ş¶ÔÏó
+            //      dotIndex: µã»÷µÄµãµÄË÷Òı
+            //      dotObject: [µã] ¶ÔÏó
             dotClick: $.noop
         }, option || {} );
-                
-        var pFunc = { 
+
+        var pFunc = {
             "byIndex": fillColorByIndex,
             "forward": fillColorForward,
             "afterward": fillColorAfterward
@@ -94,41 +96,41 @@
             "alternately": { up: "-20px", down: "20px", func: function ( i ) { return ( i % 2 == 0 ) ? this.up : this.down; } }
         };
 
-        // è¿”å›æŒ‡å®šç´¢å¼•çš„ [ç‚¹]
-        this.getStation = function ( stationIndex ) 
+        // ·µ»ØÖ¸¶¨Ë÷ÒıµÄ [µã]
+        this.getStation = function ( stationIndex )
         {
             return this.children( ".j-station" ).eq( stationIndex );
         }
 
-        // ä» index å¼€å§‹å¾€å‰ä¿®æ”¹æ‰€æœ‰çš„ç‚¹å’Œè¿æ¥çº¿çš„é¢œè‰²
-        function fillColorForward ( index, color )
+        // ´Ó index ¿ªÊ¼ÍùÇ°ĞŞ¸ÄËùÓĞµÄµãºÍÁ¬½ÓÏßµÄÑÕÉ«
+        function fillColorForward( index, color )
         {
             var me = this.getStation( index );
             fillColor( this.children( ":lt(" + ( index * 2 + 1 ) + ")" ), color );
         }
 
-        // ä¿®æ”¹ index ç‚¹çš„é¢œè‰²
-        function fillColorByIndex ( index, color )
+        // ĞŞ¸Ä index µãµÄÑÕÉ«
+        function fillColorByIndex( index, color )
         {
             fillColor( this.children( ".j-station:eq(" + index + ")" ), color );
         }
 
-        function fillColor ( obj, color )
+        function fillColor( obj, color )
         {
             obj.addClass( "j-" + color );
         }
 
-        // ä» index å¼€å§‹å¾€åä¿®æ”¹æ‰€æœ‰çš„ç‚¹å’Œè¿æ¥çº¿çš„é¢œè‰²
-        function fillColorAfterward ( index, color )
+        // ´Ó index ¿ªÊ¼ÍùºóĞŞ¸ÄËùÓĞµÄµãºÍÁ¬½ÓÏßµÄÑÕÉ«
+        function fillColorAfterward( index, color )
         {
             fillColor( this.children( ":gt(" + ( index * 2 - 1 ) + ")" ), color );
         }
-        
-        // å®šä½æ ‡é¢˜æ–‡æœ¬ä½ç½®
-        function innerShowContent ( i, f )
+
+        // ¶¨Î»±êÌâÎÄ±¾Î»ÖÃ
+        function innerShowContent( i, f )
         {
-            var f = pContentFunc[ setting.contentPos.toLowerCase() ];
-            
+            var f = pContentFunc[setting.contentPos.toLowerCase()];
+
             this.children().addClass( "j-text-title" ).css( {
                 top: f.func( i ),
                 width: ( this.width() + parseInt( setting.connectLineWidth ) ),
@@ -136,23 +138,51 @@
             } );
         }
 
-        // ä¿®æ”¹æŒ‡å®šç´¢å¼•çš„ [ç‚¹] çš„é¢œè‰²
+        // ĞŞ¸ÄÖ¸¶¨Ë÷ÒıµÄ [µã] µÄÑÕÉ«
         // fillStrategy (string):
-        //      byIndex - ä»…å½“å‰ç´¢å¼•çš„ç‚¹ï¼ˆé»˜è®¤ï¼‰
-        //      forward - åŒ…æ‹¬å‰é¢æ‰€æœ‰ç‚¹åŠè¿æ¥çº¿
-        //      afterward - åŒ…æ‹¬åé¢æ‰€æœ‰ç‚¹åŠè¿æ¥çº¿
+        //      byIndex - ½öµ±Ç°Ë÷ÒıµÄµã£¨Ä¬ÈÏ£©
+        //      forward - °üÀ¨Ç°ÃæËùÓĞµã¼°Á¬½ÓÏß
+        //      afterward - °üÀ¨ºóÃæËùÓĞµã¼°Á¬½ÓÏß
         this.changeColor = function ( stationIndex, color, fillStrategy )
         {
             fillStrategy = fillStrategy || "byIndex";
+            stationIndex = stationIndex < 0 ? 0 : stationIndex;
 
             if ( fillStrategy in pFunc )
             {
                 this.children().removeClass( SUPPORT_COLOR );
-                pFunc[ fillStrategy ].apply( this, [ stationIndex, color ] );
+                pFunc[fillStrategy].apply( this, [stationIndex, color] );
             }
+
+            return this;
         }
 
-        // åˆ›å»º [ç‚¹] ä¿¡æ¯
+        // ÉÁË¸Ö¸¶¨µÄµã
+        // duration: ÉÁË¸Ê±¼ä³¤¶È£¨µ¥Î»£ººÁÃë£©£¬Îª¿Õ»òÕßÉèÖÃÎª 0 ÔòÒ»Ö±ÉÁË¸¡£
+        this.flash = function ( stationIndex, duration )
+        {
+            duration = ( duration || 0 );
+            stationIndex = ( stationIndex < 0 ? 0 : stationIndex );
+
+            var s = this.children( ".j-station:eq(" + stationIndex + ")" );
+
+            s.addClass( "j-flash" );
+
+            if ( duration !== 0 )
+            {
+                setTimeout( function () { s.removeClass( "j-flash" ); }, duration );
+            }
+
+            return this;
+        }
+
+        // Ê¹Ö¸¶¨µÄµãÍ£Ö¹ÉÁË¸
+        this.stopFlash = function ( stationIndex )
+        {
+            this.children( ".j-station:eq(" + ( stationIndex < 0 ? 0 : stationIndex ) + ")" ).removeClass( "j-flash" );
+        }
+
+        // ´´½¨ [µã] ĞÅÏ¢
         var buildStation = function ( data )
         {
             if ( data && $.isArray( data ) && data.length > 0 )
@@ -196,7 +226,7 @@
                             format = ELEMENT_FORMAT_GENERAL;
                         }
 
-                        this.append( 
+                        this.append(
                             format.replace( /\{0\}/g, childrenName )
                                   .replace( /\{1\}/g, content )
                                   .replace( /\{2\}/g, url )
@@ -214,12 +244,12 @@
             return null;
         }
 
-        // åˆ›å»º [ç‚¹] è¿æ¥çº¿
+        // ´´½¨ [µã] Á¬½ÓÏß
         function buildStationConnectionLine( tag, stations )
         {
             if ( tag )
             {
-                stations.filter( ":not(:last)" ).after( 
+                stations.filter( ":not(:last)" ).after(
                     ELEMENT_FORMAT_CONN.replace( /\{0\}/g, tag )
                                        .replace( /\{1\}/g, ( setting.connectLineColor ? ( " j-" + setting.connectLineColor ) : "j-gray" ) )
                                        .replace( /\{2\}/g, ( setting.connectLineWidth ? ( ' style="width: ' + setting.connectLineWidth + ';"' ) : '' ) )
@@ -227,7 +257,7 @@
             }
         }
 
-        // å®šä½è¿æ¥çº¿åŠæ ‡é¢˜æ–‡æœ¬
+        // ¶¨Î»Á¬½ÓÏß¼°±êÌâÎÄ±¾
         function setPositions( line )
         {
             var allChild = line.children();
@@ -244,7 +274,7 @@
                     curPosition += e.width();
 
                     if ( setting.showContent && e.hasClass( "j-station" ) )
-                        innerShowContent.apply( e, [ i / 2 ] );
+                        innerShowContent.apply( e, [i / 2] );
                 }
             }
         }
@@ -259,17 +289,18 @@
 
             line.addClass( "j-line" );
 
-            stations.addClass( "j-line-children j-station" + ( setting.color ? ( " j-" + setting.color ) : "j-gray" ) ).click( function ( event ) {
+            stations.addClass( "j-line-children j-station" + ( setting.color ? ( " j-" + setting.color ) : "j-gray" ) ).click( function ( event )
+            {
                 var me = $( this );
-                setting.dotClick( event, me.index( ".j-station" ), me );    // å¼•å‘å•å‡»äº‹ä»¶
+                setting.dotClick( event, me.index( ".j-station" ), me );    // Òı·¢µ¥»÷ÊÂ¼ş
             } );
 
-            if ( setting.stressEnds )   // çªå‡ºä¸¤ç«¯
+            if ( setting.stressEnds )   // Í»³öÁ½¶Ë
                 stations.first().add( stations.last() ).addClass( "j-ends" );
 
-            buildStationConnectionLine.apply( line, [tag, stations] );  // åˆ›å»ºè¿æ¥çº¿
+            buildStationConnectionLine.apply( line, [tag, stations] );  // ´´½¨Á¬½ÓÏß
 
-            setPositions( line );   // å®šä½
+            setPositions( line );   // ¶¨Î»
         } );
     }
 } )( jQuery );

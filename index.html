@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Jline : 像地铁站点导航的 jQuery 插件，JQuery plugin like navigation of the subway station, only to support the horizontal style." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Jline</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mwc/jLine">View on GitHub</a>
+
+          <h1 id="project_title">Jline v0.0.1</h1>
+          <h2 id="project_tagline">像地铁站点导航的 jQuery 插件，JQuery plugin like navigation of the subway station, only to support the horizontal style.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mwc/jLine/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mwc/jLine/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>Welcome!</h3>
+
+<p>jLine 是一个用于创建横向的类似地铁站点导航的 jQuery 工具，未来会支持对纵向导航的支持。</p>
+<p>jLine 可以用在展示步骤或流程的界面中增加用户体验。see <a href="demo.html" target="_blank">demo</a></p>
+
+<h3>usage</h3>
+<h5>1、添加样式表到页面的头部</h5>
+<pre><code>&lt;link rel="stylesheet" href="content/j-line.css" />
+</code></pre>
+<h5>2、添加 j-line 插件</h5>
+<p>要求 <a href="http://jquery.com" target="_blank">jQuery</a>，推荐使用最新版本</p>
+<pre><code>&lt;script type="text/javascript" src="scripts/jquery-1.7.2.js">&lt;/script>
+&lt;script type="text/javascript" src="scripts/j-line.js">&lt;/script>
+</code></pre>
+<h5>3、例程：</h5>
+<pre><code>
+&lt;script type="text/javascript">
+
+    // $("selector").jLine( options, [data] );
+
+    $( function ()
+    {
+        var data_1 = ["v1.0", "v1.2", "v2.0", "v2.5"];
+        var d = $( ".date" ).jLine( { contentPos: "top", connectLineWidth: "60px" }, data_1 );
+        d.changeColor( 3, "orange" );
+
+        var data_2 = ["开始", "卸载旧版本", "选择位置", "安装文件", "完成"];
+        var setup = $( ".setup" ).jLine( { connectLineWidth: "70px" }, data_2 );
+        setup.changeColor( 2, "blue", "forward" );
+
+        var data_3 = ["福田口岸", "福民", "会展中心", "市民中心", "少年宫", "莲花北", "上梅林", "民乐", "白石龙", "深圳北", "红山", "上塘", "龙胜", "龙华", "清湖"];
+        var station = $( ".station" ).jLine( { contentPos: "alternately", connectLineWidth: "50px" }, data_3 );
+        station.changeColor( 4, "red", "forward" );
+    } );
+&lt;/script>
+
+</code></pre>
+<h5>4、示例结果：</h5>
+<img src="images/show.png" alt="" />
+
+    <h3>Document</h3>
+    <h4>options</h4>
+
+    <table>
+        <thead>
+            <tr><th>option</th><th>type</th><th>description</th><th>default value</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>showContent</td>
+                <td>boolean</td>
+                <td>
+                    显示附加文本
+                    <p>文本中使用 <strong>=></strong> 符号可以将文本转为超链接，例如： </p>
+                    <code class="gap">"sample=>http://www.sample.com"</code>
+                    <div style="margin-top: 20px;"></div>
+                </td>
+                <td>true</td>
+            </tr>
+            <tr>
+                <td>contentPos</td>
+                <td>string</td>
+                <td>
+                    文本位置，可选择的值：
+                    <ul>
+                        <li>top: 文字在[点]上方</li>
+                        <li>bottom: 文字在[点]下方</li>
+                        <li>alternately: 上下交替</li>
+                    </ul>
+                </td>
+                <td>"bottom"</td>
+            </tr>
+            <tr>
+                <td>color</td>
+                <td>string</td>
+                <td>[点]的颜色
+                    <ul>
+                        <li>white  -  白</li>
+                        <li>gray    -   灰</li>
+                        <li>green   -   绿</li>
+                        <li>red     -   红</li>
+                        <li>blue    -   蓝</li>
+                        <li>purple  -   紫</li>
+                        <li>cyan    -   青</li>
+                        <li>yellow  -   黄</li>
+                        <li>orange  -   橙</li>
+                    </ul>
+                </td>
+                <td>"gray"</td>
+            </tr>
+            <tr>
+                <td>connectLineColor</td>
+                <td>string</td>
+                <td>连接线的颜色，参考 color </td>
+                <td>"gray"</td>
+            </tr>
+            <tr>
+                <td>connectLineWidth</td>
+                <td>string/number</td>
+                <td>连接线长度</td>
+                <td>"30px"</td>
+            </tr>
+            <tr>
+                <td>stressEnds</td>
+                <td>boolean</td>
+                <td>两端的 [点] 更突出（点稍微大一点点）</td>
+                <td>true</td>
+            </tr>
+            <tr>
+                <td>dotClick</td>
+                <td>function (callback)</td>
+                <td>
+                    <p>点击指定的 [点] 产生的回调事件，发送参数：</p>
+                    <code class="gap">function(event,dotIndex,dotObject)</code>
+                    <ul style="margin-top: 20px;">
+                        <li>event: 事件对象</li>
+                        <li>dotIndex: 点击的点的索引</li>
+                        <li>dotObject: [点] 对象</li>
+                    </ul>
+                </td>
+                <td>$.noop</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>data</h4>
+    <p>必须是数组</p>
+    <p>参考 option -> showContent 参数，例如：</p>
+    <code class="gap">[ "title1=>url", "title2", ... ]</code>
+    <div style="margin-top: 20px;"></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Jline maintained by <a href="https://github.com/mwc">mwc</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+  </body>
+</html>
