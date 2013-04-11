@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <style type="text/css">
+        body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, fieldset, legend, form, button, input, textarea, th, td { margin: 0; padding: 0; }
+        .container { color: #333333; background: url('http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_back2.png') repeat-x left top; font-family: "微软雅黑", "Microsoft YaHei", "宋体", Song, Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; font-size: 14px; }
+        ul, ol { list-style: none; }
+        a { text-decoration: none; }
+        .content { background: url('http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_top2.png') no-repeat left top; width: 700px; margin: 0 auto; padding-top: 85px; }
+            .content .nav { height: 37px; line-height: 37px; text-align: right; }
+                .content .nav a { line-height: 37px; margin-left: 10px; margin-right: 10px; color: #adadad; }
+                    .content .nav a:hover { color: #2194c1; }
+
+        .smark { color: #1fd32a; }
+        .important { color: #b70705; }
+
+        .content .detail { margin-top: 460px; }
+            .content .detail li { border-bottom: 10px solid #eee; padding-top: 30px; padding-bottom: 30px; }
+            .content .detail h2 { font-size: 24pt; color: #666; margin-bottom: 20px; }
+            .content .detail dl { overflow: hidden; color: #888; line-height: 22px; }
+                .content .detail dl dt { margin-bottom: 20px; }
+                    .content .detail dl dt.left { float: left; margin-right: 20px; }
+                    .content .detail dl dt.right { float: right; margin-left: 20px; }
+                .content .detail dl dd { text-align: left; }
+                    .content .detail dl dd p { margin-bottom: 30px; }
+    </style>
+
+    <div class="container">
+        <div class="content">
+        <div class="nav"><a href="https://github.com/mwc/jLine/raw/gh-pages/some/kfjh.mpp">下载开发计划.mpp</a></div>
+        <ul class="detail">
+            <li>
+                <h2>1.创建内容块组</h2>
+                <dl>
+                    <dt class="right">
+                        <img src="http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_t2.png" alt="" />
+                    </dt>
+                    <dd>
+                        <p>点击分割条上的[<span class="smark">左</span>]、[<span class="smark">右</span>]或[<span class="smark">同时选择两侧</span>]按钮。</p>
+                        <p>在出现的内容块配置框中，选择 [<span class="smark">另存为组...</span>] 按钮。</p>
+                        <p>需至少选中<span class="smark">两个或以上</span>的内容块才允许另存为组。</p>
+                        <p>暂未实现 <span class="important">内容块组的列表页</span>。</p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <h2>2.交换布局</h2>
+                <dl>
+                    <dt class="right">
+                        <img src="http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_t3.png" alt="" />
+                    </dt>
+                    <dd>
+                        <p>点击分割条上的[<span class="smark">交换两侧布局</span>]按钮即可交换布局。</p>
+                        <p>交换布局同时也支持<span class="smark">横向布局</span>。</p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <h2>3.内容块列表详细视图</h2>
+                <dl>
+                    <dt class="right">
+                        <img src="http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_t4.png" alt="" />
+                    </dt>
+                    <dd>
+                        <p>内容块列表增加支持<span class="smark">图标+文本</span>方式的详细视图。</p>
+                        <p>点击视图按钮可以两种方式切换。</p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <h2>4.内容块颜色预设</h2>
+                <dl>
+                    <dt class="right">
+                        <img src="http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_t5.png" alt="" />
+                    </dt>
+                    <dd>
+                        <p>若要配置所有内容块的颜色，则点击设计页面顶部的 [<span class="smark">全局颜色预设</span>] 按钮进入全局颜色配置。</p>
+                        <p>若仅希望配置指定内容块的颜色，则点击<span class="smark">高级配置</span>图标，从下拉菜单中，选择 [<span class="smark">颜色预设...</span>] 菜单。</p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <h2>5.富文本编辑自定义内容块</h2>
+                <dl>
+                    <dt class="right">
+                        <img src="http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_t6.png" alt="" />
+                    </dt>
+                    <dd>
+                        <p>自定义内容的内容块支持富文本编辑。</p>
+                        <p>鼠标移动到自定义内容块中央位置，显示 “<span class="smark">点击此处编辑自定义内容</span>” 的提示，点击该提示则进入富文本编辑状态。</p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <h2>6.自定义非列表内容块的高度</h2>
+                <dl>
+                    <dt class="right">
+                        <img src="http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_t7.png" alt="" />
+                    </dt>
+                    <dd>
+                        <p>非列表的内容块可自定义其高度，以便与其他内容块高度对齐。</p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <h2>7.操作项快捷方式</h2>
+                <dl>
+                    <dt class="right">
+                        <img src="http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_t8.png" alt="" />
+                    </dt>
+                    <dd>
+                        <p>内容块操作项支持快捷设置方式。</p>
+                        <p>鼠标移动到该按钮下，可立即配置其文本及展示样式。</p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <h2>8.内容块预览</h2>
+                <dl>
+                    <dt class="right">
+                        <img src="http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_t9.png" alt="" />
+                    </dt>
+                    <dd>
+                        <p>在内容块列表中，<span class="smark">双击</span>任意一个内容块，将弹出该内容块的预览窗口。</p>
+                        <p>点击设计面板任意位置自动关闭该预览窗口。</p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <h2>9.内容块帮助信息及最小宽度提示</h2>
+                <dl>
+                    <dt class="right">
+                        <img src="http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_t10.png" alt="" />
+                    </dt>
+                    <dd>
+                        <p>增加 <span class="smark">帮助</span> 按钮。</p>
+                        <p>该按钮默认不显示。</p>
+                        <p>鼠标移动到任意内容块中，自动显示内容块支持的最小宽度信息。</p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <h2>10.自动数字列表</h2>
+                <dl>
+                    <dt class="right">
+                        <img src="http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_t11.png" alt="" />
+                    </dt>
+                    <dd>
+                        <p>内容块中的数字顺序类列表自动显示为数字列表。</p>
+                        <p>仅需提供 <span class="smark">number</span> 样式。</p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <h2>11.内容块图标</h2>
+                <dl>
+                    <dt class="right">
+                        <img src="http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_t12.png" style="width: 120px;" alt="" />
+                    </dt>
+                    <dd>
+                        <p>增加超过 <span class="smark">30</span> 个内容块的图标。</p>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <h2>12.修复BUG</h2>
+                <dl>
+                    <dt class="right">
+                        <img src="http://images.cnblogs.com/cnblogs_com/ILoveSilence/182922/o_t13.png" alt="" />
+                    </dt>
+                    <dd>
+                        <p><span class="important">[BUG]</span> 内容块的请求链接中加入随机参数预防缓存。</p>
+                        <p><span class="important">[BUG]</span> 在底部点击“配置”框后，显示的配置框的位置不正确（当内容非常长的情况下）。</p>
+                        <p><span class="important">[BUG]</span> 删除标签页时，标签页中的分割条未被删除的 Bug。</p>
+                        <p><span class="important">[BUG]</span> 非列表的内容的配置项中，滚动内容的复选框无效。</p>
+                        <p><span class="important">[BUG]</span> 分页按钮在初始化时显示4个数字，但是点击下一页时仅显示3个数字，点击到最后一页时又显示4个数字。统一显示3个分页个数，当存在多页时，不应该有时显示4个，有时显示3个。</p>
+                        <p><span class="important">[BUG]</span> 分页按钮的 [上一页] 或 [下一页] 若快速单击多次，并且内容块加载速度较慢，则不断加载某一页。若多次快速点击，则等待某次加载完毕后再响应下一次点击。</p>
+
+                        <p><span class="smark">[修改]</span> 操作项快捷工具的阴影高度及将界面的“标题”改为“文本”。</p>
+                        <p><span class="smark">[修改]</span> 当门户内容块的底部无任何内容时，自动移除底部区域。</p>
+                        <p><span class="smark">[修改]</span> 若标签页面板中仅有一个内容块，则去除其边框及标题部分，若分页在顶部位置则自动移动到底部位置。</p>
+                        <p><span class="smark">[修改]</span> 表格标题修改字体。</p>
+                        <p><span class="smark">[修改]</span> 当标签页布局删除最后一个标签页时，将删除整个标签页布局。</p>
+                        <p><span class="smark">[修改]</span> 移除内容块的内容默认的 margin: 3px 样式。</p>
+                        <p><span class="smark">[修改]</span> 标签页即便在仅有一个内容块时也应该显示标题及边框。</p>
+                        <p><span class="smark">[修改]</span> 内容块根据设置的显示记录条数控制高度，不会随着条数的变化而变化（内容块的高度固定，不随记录缩小）。</p>
+
+                        <p>and More ...</p>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    </div>
+</body>
+</html>
